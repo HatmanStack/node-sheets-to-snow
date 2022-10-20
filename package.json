@@ -1,0 +1,14 @@
+{
+  "name": "node-sheets-to-snow",
+  "version": "1.0.0.",
+  "description": "google sheets to snow connector with oauth",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "googleapis": "^105.0.0",
+    "snowflake-sdk": "^1.6.14"
+  }
+}
