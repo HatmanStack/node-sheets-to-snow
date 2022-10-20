@@ -1,5 +1,15 @@
-pack build \
-  --builder gcr.io/buildpacks/builder:v1 \
-  --env GOOGLE_FUNCTION_SIGNATURE_TYPE=http \
-  --env GOOGLE_FUNCTION_TARGET=addData \
-  node-sheets-to-snow
+  steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/$REPO_NAME/myimage', '.'] 
+   
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/$REPO_NAME/myimage']
+    
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['run', 'deploy', 'node-sheets-to-snow', '--image', 
+           'us-central1-docker.pkg.dev/$PROJECT_ID/$REPO_NAME/myimage',
+           '--region', 'us-central1', '--platform', 'managed',
+           '--allow-unauthenticated']  
+images:
+  - us-central1-docker.pkg.dev/$PROJECT_ID/$REPO_NAME/myimage
+  
