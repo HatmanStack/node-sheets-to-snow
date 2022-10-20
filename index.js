@@ -4,6 +4,8 @@ const process = require('process');
 const {authenticate} = require('@google-cloud/local-auth');
 const {google} = require('googleapis');
 const snow = require('snowflake-sdk');
+const express = require('express');
+const app = express();
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
@@ -54,7 +56,7 @@ async function authorize() {
   }
   client = await authenticate({
     scopes: SCOPES,
-    keyfilePath: CREDENTIALS_PATH,
+    keyfilePath: process.env.CREDENTIALS,
   });
   if (client.credentials) {
     await saveCredentials(client);
@@ -88,6 +90,13 @@ async function getInvite(auth) {
   }, 2000)
   }
   
+app.get('/', (req, res) => {
+  authorize().then(getInvite).catch(console.error);
+  //const name = process.env.NAME || 'World';
+  //res.send(`Hello ${name}!`);
+});
+
+const port = parseInt(process.env.PORT) || 8080;
+app.listen(port);
 
 
-authorize().then(getInvite).catch(console.error);
