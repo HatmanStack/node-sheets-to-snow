@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "gemenielabs-stocks",
+  "private_key_id": "bac494c02405b2d843dda81a2b0ac3852e87283d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCs7VYk6NIeGCcr\nVZT1xNIdiBzB6iwneGcTjryT54Bo1lT6kTzrfxdhjq5o971AR4YULSWWxwZOoQYV\n7EtvP52UOwuGCcvb2si31ApzbvCNWP/s0a5QGMiO4qI2p3YtwDcAewTV9enz9qY0\nHE9476EJkixJR3NEvQx9J6dpMAt8e/jrUrj4Du1d9LxsDKFRCmiDOyWULZwT79UK\naeYZQ+2wvwuLRYg6NqUTMcisOBoF4HwJbuRFQ7ewrCGnB0PHvv0hxZ9LSkjdVz4Q\nHicABBcK/H8kqv+d5I72E/fwCLzbbkDlwzaQdwPzT5XvdBh4duFptNLF/4VsnEbt\nP1+6FsQzAgMBAAECggEAGpis4s5gNWViQ4WifHkCFq1ZkZrnoZvLbAmhsrSCCR3L\nQiKBFniclaeb5uRmL3MQtHJhJqMuXXzh8mXpEDozjUSA4uOyKU/+sQSkJYQ5lokg\nC5dlp5y4M/8NaI8xsPBa7/BRGmtRHpxKjGySQzfFMoil1mYZMh2gGcZgjDVp1Cz9\noKFXBjHlcRX0DdX8lmQ870Crbspq9RUnAg/tFAS+o6PnbhT3oAVXn/zLnHRyY3xP\nvTjyKW3NbAV6TkZuYskrihJYF8mBrLsugHzUFoviBYQNYv+7DUX8n7PsBgJpeIiz\nl5rTFd1vabq0svZk+mBybyMb8mIEy8AIT/t5mw+JcQKBgQDbhT0gQXWRYeifSuWX\nODPH5cDM1rcePwbDUVjgoaD1mxChrSiG0k06GLwCeh0jvOph3XmCjGXSIm2P4hbk\nhzDewVSEYYj1JggyVPtS/IstYaURNI27ucdd2yyUKrMmMvr2bPMHWqfYpQLgIUFC\nIxTr36g6N9uJ70eK6uZc5sg7iwKBgQDJqfB0/ZZp+H11w6VOTjhiGVo1q9C13yJq\nM/NWHWLh7ZtfOfMbVlQ3MU7vNw5vvy/GTbP9as/sXd90j05GnpAtE2nlf5yQmur2\n8npGT3rUGw2vgUR4LSGfQRI3ls/KNUr/oC1vgg6HfsW18N0wecRHPuI7AM2tM/HP\nFRrj7aHO+QKBgQCcIvrFNIoA7BjfJBCFLG54IgyuJZJ9quqOhg+nRo8L4k1EEbuf\nmXlgdzNSt7R+NOKo1TSWDHJnsiEnk/IgfZ/e8LfCqPUXGQP/eL6B2irMDoWv5Sdi\nfNM3CKt+f5iI9P3XxMpfUrXLvCJ9dGnMNtOsqZooPo6iX1UNk+Jh9aw53QKBgQCO\nA6baPFrYda2kaQrYgi0iqEfm1AA+k8xgjgUm97rS78ki3mRdNAZKd+bmfxcjirfS\nJpZCOB4Ejnb2VpUBFljh5XIFtEBFdVNSZJ/HM+GDzSluFtJo7x9mTyTNEN9zvuP5\n8IsOo8AnmxcQcXbS1G1s3tPiSUaOWq5G7s3pBUeVwQKBgCLGfHK7GVkBn/UO8jdc\nVaZjVUstCLKA3+uK6vCjolSbxElYQbAZdCHvKXdLmHbzNx3CssGBiuATsbbZIXP1\nmWCk0YQ5oQth6oZpXLPaJwGYfpG6at9qdrhq1G7Jdu5vn83T32QLCxsO4QKUAmPY\ntsBTQaLyyplnl0Vzhz+LhfYd\n-----END PRIVATE KEY-----\n",
+  "client_email": "sheets-access@gemenielabs-stocks.iam.gserviceaccount.com",
+  "client_id": "109148839992215034220",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sheets-access%40gemenielabs-stocks.iam.gserviceaccount.com"
+}
