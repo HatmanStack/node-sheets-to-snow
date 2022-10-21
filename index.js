@@ -12,7 +12,7 @@ const getInvite = async () => {
   });
   google.options({auth});
   const res = await sheets.spreadsheets.values.get({
-    spreadsheetId: '1qIaETXgtwNLeFmc-_sCQ9vfOyy58YV1kKJzp5YRbIy4',
+    spreadsheetId: '1bZ7vNXLzV39VltQc74chsOHfjgNvdBQfYLc_wirN1WU',
     range: 'A2:E',
   });
   const rows = res.data.values;
