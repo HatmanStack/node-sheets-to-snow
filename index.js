@@ -6,7 +6,7 @@ const snow = require('snowflake-sdk');
 const getInvite = async () => {
   const auth = new google.auth.GoogleAuth({
     keyFile: path.join(__dirname, 'creds.json'),
-    scopes: ['https://www.googleapis.com/auth/spreadsheets']
+    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
   google.options({auth});
   const res = await sheets.spreadsheets.values.get({
