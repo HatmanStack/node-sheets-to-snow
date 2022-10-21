@@ -20,6 +20,7 @@ const getInvite = async () => {
     console.log('No data found.');
     return;
   }
+  console.log(rows);
   const connection = snow.createConnection(
     {
       account: process.env.REGION,
@@ -27,7 +28,7 @@ const getInvite = async () => {
       password: process.env.PASSWORD
     }
   );
-  console.log('rows: ${rows}');
+  
   const conn = connection.connect();
   conn.execute({ sqlText: 'CREATE OR REPLACE TABLE DEMO_DB.PUBLIC.SHEETS (TS string, NAME string, DAYS string, DIET string, PAY string);' });
   //Timeout for Snowflake Create/Replace to Run
