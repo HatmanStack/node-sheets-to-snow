@@ -43,6 +43,7 @@ app.listen(port, () => {
 
 app.get('/', (req,res) => {
     getInvite();
+    res.send('Adding Data');
 });
 
 
