@@ -7,7 +7,7 @@ const app = express();
 
 const getInvite = async () => {
     const auth = new google.auth.GoogleAuth({
-    keyFile: path.join(__dirname, 'creds.json'),
+    keyFile: path.join(__dirname, 'secrets/creds.json'),
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
   google.options({auth});
