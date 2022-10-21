@@ -2,9 +2,11 @@ const path = require('path');
 const {google} = require('googleapis');
 const sheets = google.sheets('v4');
 const snow = require('snowflake-sdk');
+const express = require('express');
+const app = express();
 
 const getInvite = async () => {
-  const auth = new google.auth.GoogleAuth({
+    const auth = new google.auth.GoogleAuth({
     keyFile: path.join(__dirname, 'creds.json'),
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
@@ -33,9 +35,15 @@ const getInvite = async () => {
   }, 2000)
 }
 
-exports.addData = (req, res) => {
-  getInvite();
-};
+
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log('listening');
+});
+
+app.get('/', (req,res) => {
+    getInvite();
+});
 
 
 

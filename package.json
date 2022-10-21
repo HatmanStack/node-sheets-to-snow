@@ -4,11 +4,14 @@
   "description": "google sheets to snow connector with oauth",
   "main": "index.js",
   "scripts": {
-    "start": "functions-framework --target=addData"
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=12.0.0"
   },
   "dependencies": {
-    "@google-cloud/functions-framework": "^2.1.1",
     "googleapis": "^105.0.0",
-    "snowflake-sdk": "^1.6.14"
+    "snowflake-sdk": "^1.6.14",
+    "express": "^4.18.2"
   }
 }
