@@ -36,8 +36,8 @@ const getInvite = async () => {
   console.log('table deleted');
   setTimeout(() => {
     console.log('update');
-    conn.execute({sqlText: 'insert INTO DEMO_DB.PUBLIC.SHEETS(TS, NAME, DAYS, DIET, PAY) values(?, ?, ?, ?, ?)', binds: rows});
-    }, 10000);
+    conn.execute({sqlText: 'INSERT INTO DEMO_DB.PUBLIC.SHEETS(TS, NAME, DAYS, DIET, PAY) values(?, ?, ?, ?, ?)', binds: rows});
+    }, 2000);
 }
 
 
