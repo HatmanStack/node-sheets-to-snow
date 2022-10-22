@@ -28,17 +28,16 @@ const getInvite = async () => {
       password: process.env.PASSWORD
     }
   );
-  
+  console.log(rows);
   const conn = connection.connect();
   console.log('snow start');
   //Callback for snowflake-nodejs-connector does not support current nodejs callback framework
-  const deleted = conn.execute( {sqlText: 'CREATE OR REPLACE TABLE DEMO_DB.PUBLIC.SHEETS (TS string, NAME string, DAYS string, DIET string, PAY string);'});
-  var x = deleted;
+  conn.execute( {sqlText: 'CREATE OR REPLACE TABLE DEMO_DB.PUBLIC.SHEETS (TS string, NAME string, DAYS string, DIET string, PAY string);'});
   console.log('table deleted');
   setTimeout(() => {
-    console.log('');
+    console.log('update');
     conn.execute({sqlText: 'insert INTO DEMO_DB.PUBLIC.SHEETS(TS, NAME, DAYS, DIET, PAY) values(?, ?, ?, ?, ?)', binds: rows});
-    }, 2000);
+    }, 10000);
 }
 
 
