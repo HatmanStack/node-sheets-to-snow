@@ -13,14 +13,20 @@ const getInvite = async () => {
   google.options({auth});
   const res = await sheets.spreadsheets.values.get({
     spreadsheetId: '1bZ7vNXLzV39VltQc74chsOHfjgNvdBQfYLc_wirN1WU',
-    range: 'A2:E',
+    range: 'A:E',
   });
   const rows = res.data.values;
   if (!rows || rows.length === 0) {
     console.log('No data found.');
     return;
   }
-  console.log(rows);
+  console.log(rows.length);
+  const rangeString = 'A' + rows.length + ':E' + rows.length;
+  const single_res = await sheets.spreadsheets.values.get({
+    spreadsheetId: '1bZ7vNXLzV39VltQc74chsOHfjgNvdBQfYLc_wirN1WU',
+    range: rangeString,
+  });
+  const single_row = single_res.data.values;
   const connection = snow.createConnection(
     {
       account: process.env.REGION,
@@ -28,17 +34,11 @@ const getInvite = async () => {
       password: process.env.PASSWORD
     }
   );
-  console.log(rows);
   const conn = connection.connect();
-  console.log('snow start');
-  //Callback for snowflake-nodejs-connector does not support current nodejs callback framework
-  conn.execute( {sqlText: 'CREATE OR REPLACE TABLE DEMO_DB.PUBLIC.SHEETS (TS string, NAME string, DAYS string, DIET string, PAY string);'});
-  console.log('table deleted');
-  setTimeout(() => {
-    console.log('update');
-    conn.execute({sqlText: 'INSERT INTO DEMO_DB.PUBLIC.SHEETS(TS, NAME, DAYS, DIET, PAY) values(?, ?, ?, ?, ?)', binds: rows});
-    }, 2000);
-}
+  console.log(single_row);
+  conn.execute({sqlText: 'INSERT INTO DEMO_DB.PUBLIC.SHEETS(TS, NAME, DAYS, DIET, PAY) values(?, ?, ?, ?, ?)', binds: single_row});
+    
+  }
 
 
 const port = process.env.PORT || 8080;
