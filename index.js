@@ -30,11 +30,14 @@ const getInvite = async () => {
   );
   
   const conn = connection.connect();
-  conn.execute({ sqlText: 'CREATE OR REPLACE TABLE DEMO_DB.PUBLIC.SHEETS (TS string, NAME string, DAYS string, DIET string, PAY string);' });
-  //Timeout for Snowflake Create/Replace to Run
+  console.log('snow start');
+  //Callback for snowflake-nodejs-connector does not support current nodejs callback framework
+  conn.execute( {sqlText: 'CREATE OR REPLACE TABLE DEMO_DB.PUBLIC.SHEETS (TS string, NAME string, DAYS string, DIET string, PAY string);'});
+  console.log('table deleted');
   setTimeout(() => {
+    console.log('table update');
     conn.execute({sqlText: 'insert INTO DEMO_DB.PUBLIC.SHEETS(TS, NAME, DAYS, DIET, PAY) values(?, ?, ?, ?, ?)', binds: rows});
-  }, 2000)
+    }, 2000);
 }
 
 
