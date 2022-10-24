@@ -13,7 +13,7 @@ const getInvite = async () => {
   google.options({auth});
   const res = await sheets.spreadsheets.values.get({
     spreadsheetId: '1bZ7vNXLzV39VltQc74chsOHfjgNvdBQfYLc_wirN1WU',
-    range: 'A:E',
+    range: 'A2:E2',
   });
   const rows = res.data.values;
   if (!rows || rows.length === 0) {
@@ -36,8 +36,7 @@ const getInvite = async () => {
   );
   const conn = connection.connect();
   console.log(single_row);
-  conn.execute({sqlText: 'INSERT INTO DEMO_DB.PUBLIC.SHEETS(TS, NAME, DAYS, DIET, PAY) values(?, ?, ?, ?, ?)', binds: single_row});
-    
+  conn.execute({sqlText: 'INSERT INTO DEMO_DB.PUBLIC.SHEETS(TS, NAME, DAYS, DIET, PAY) values(?, ?, ?, ?, ?)', binds: rows});
   }
 
 
