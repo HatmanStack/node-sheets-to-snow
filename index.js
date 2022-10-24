@@ -15,18 +15,11 @@ const getInvite = async () => {
     spreadsheetId: '1bZ7vNXLzV39VltQc74chsOHfjgNvdBQfYLc_wirN1WU',
     range: 'A2:E2',
   });
-  const rows = res.data.values;
-  if (!rows || rows.length === 0) {
+  const row = res.data.values;
+  if (!row || row.length === 0) {
     console.log('No data found.');
     return;
   }
-  console.log(rows.length);
-  const rangeString = 'A' + rows.length + ':E' + rows.length;
-  const single_res = await sheets.spreadsheets.values.get({
-    spreadsheetId: '1bZ7vNXLzV39VltQc74chsOHfjgNvdBQfYLc_wirN1WU',
-    range: rangeString,
-  });
-  const single_row = single_res.data.values;
   const connection = snow.createConnection(
     {
       account: process.env.REGION,
@@ -35,8 +28,7 @@ const getInvite = async () => {
     }
   );
   const conn = connection.connect();
-  console.log(single_row);
-  conn.execute({sqlText: 'INSERT INTO DEMO_DB.PUBLIC.SHEETS(TS, NAME, DAYS, DIET, PAY) values(?, ?, ?, ?, ?)', binds: rows});
+  conn.execute({sqlText: 'INSERT INTO DEMO_DB.PUBLIC.SHEETS(TS, NAME, DAYS, DIET, PAY) values(?, ?, ?, ?, ?)', binds: row});
   }
 
 
