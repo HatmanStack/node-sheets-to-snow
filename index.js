@@ -24,7 +24,11 @@ const getInvite = async () => {
     {
       account: process.env.REGION,
       username: process.env.USER,
-      password: process.env.PASSWORD
+      password: process.env.PASSWORD,
+      warehouse: 'COMPUTE_WH',
+      database: 'DEMO_DB',
+      schema: 'PUBLIC',
+      role: 'ACCOUNTADMIN'
     }
   );
   const conn = connection.connect();
