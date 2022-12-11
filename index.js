@@ -19,6 +19,8 @@ const getInvite = async () => {
   if (!row || row.length === 0) {
     console.log('No data found.');
     return;
+  }else {
+    console.log(row)
   }
   const connection = snow.createConnection(
     {
@@ -31,6 +33,7 @@ const getInvite = async () => {
       role: 'ACCOUNTADMIN'
     }
   );
+  console.log(connection)
   const conn = connection.connect();
   conn.execute({sqlText: 'INSERT INTO DEMO_DB.PUBLIC.SHEETS(TS, NAME, DAYS, DIET, PAY) values(?, ?, ?, ?, ?)', binds: row});
   }
@@ -40,6 +43,7 @@ const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log('listening');
 });
+
 
 app.get('/', (req,res) => {
     getInvite();
