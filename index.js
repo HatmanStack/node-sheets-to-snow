@@ -40,6 +40,8 @@ const getInvite = async () => {
     complete: function(err, stmt, rows) {
       if (err) {
         console.log(`Failed to execute statement due to the following error: ${err.message}`);
+      } else {
+        console.log('No Error Logged')
       }  }});
   }
 
