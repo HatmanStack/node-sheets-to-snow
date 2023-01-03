@@ -39,7 +39,7 @@ const getInvite = async () => {
   conn.execute({sqlText: 'INSERT INTO DEMO_DB.PUBLIC.SHEETS(TS, NAME, DAYS, DIET, PAY) values(?, ?, ?, ?, ?)', binds: row,
     complete: function(err, stmt, rows) {
       if (err) {
-        console.error(`Failed to execute statement due to the following error: ${err.message}`);
+        console.log(`Failed to execute statement due to the following error: ${err.message}`);
       }  }});
   }
 
