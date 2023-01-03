@@ -3,6 +3,7 @@ const {google} = require('googleapis');
 const sheets = google.sheets('v4');
 const snow = require('snowflake-sdk');
 const express = require('express');
+const { osconfig } = require('googleapis/build/src/apis/osconfig');
 const app = express();
 
 const getInvite = async () => {
@@ -35,7 +36,11 @@ const getInvite = async () => {
   );
   console.log(connection)
   const conn = connection.connect();
-  conn.execute({sqlText: 'INSERT INTO DEMO_DB.PUBLIC.SHEETS(TS, NAME, DAYS, DIET, PAY) values(?, ?, ?, ?, ?)', binds: row});
+  conn.execute({sqlText: 'INSERT INTO DEMO_DB.PUBLIC.SHEETS(TS, NAME, DAYS, DIET, PAY) values(?, ?, ?, ?, ?)', binds: row,
+    complete: function(err, stmt, rows) {
+      if (err) {
+        console.error(`Failed to execute statement due to the following error: ${err.message}`);
+      }  }});
   }
 
 
